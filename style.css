@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #6598ff, #f1f6ff);
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Style du header */
+header {
+    background-image: url(images/img.jpg);
+    height: 240px; /* Ajuste selon la taille souhaitée */
+    background-size:cover;
+    background-position: center; /* Centré */
+    padding: 80px 0;
+    text-align: center;
+}
+
+h1 {color: #0b010e;
+   padding-top: 50px;}
+h2 {
+    color: #5a0066;
+    text-align: center;
+   }
+/* Liens de navigation */
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #feb47b;
+}
+
+/* Conteneur d'images et de texte */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne les images à gauche */
+    margin-top: 30px;
+    padding-left: 20px; /* Un petit espace à gauche de la page */
+}
+
+/* Style de chaque item (image et texte) */
+.social-item {
+    display: flex; /* Aligne l'image et le texte horizontalement */
+    margin: 30px 0;
+    width: 100%;
+    align-items: center; /* Centre verticalement l'image et le texte */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Masque l'input radio */
+.social-item input[type="radio"] {
+    display: none;
+}
+
+/* Label pour l'image et le texte */
+.social-item label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+/* Image - plus grande, avec ombre et bordure arrondie */
+.social-item img {
+    width: 130px; /* Taille de l'image agrandie */
+    height: 130px;
+    border-radius: 12px; /* Bords arrondis pour un effet moderne */
+    box-shadow: 0 8px 16px rgba(0, 9, 109, 0.678);
+    margin-right: 30px; /* Espacement entre l'image et le texte */
+    margin-left: 50px; /* Un peu d'espace à gauche */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Style pour le menu */
+.menu {
+    display: flex;
+    justify-content: space-around;
+    background-color: #003366; /* Couleur du menu */
+    padding: 10px 0;
+    list-style: none;
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #FFD700; /* Couleur dorée au survol */
+}
+
+
+/* Style de l'image */
+.image-container {
+    display: flex;
+    justify-content: center; /* Centrer l'image horizontalement */
+    margin-top: 30px; /* Un peu d'espace au-dessus */
+}
+
+.image-reseau {
+    width: 50%; /* L'image ne prendra pas toute la largeur */
+    height: auto;
+    border-radius: 15px; /* Coins arrondis pour un effet moderne */
+    box-shadow: 0 8px 16px rgba(0, 9, 109, 0.678); /* Ombre pour un effet de profondeur */
+    animation: fadeIn 1s ease-out forwards; /* Animation d'apparition */
+}
+
+/* Animation pour faire apparaître l'image avec un léger zoom */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Zone de texte */
+.text {
+    display: none;
+    width: 70%; /* Largeur de la zone de texte à droite */
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 9, 109, 0.678);
+    border-radius: 12px;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+/* Titres et contenu du texte */
+.text h3 {
+    font-size: 1.5rem;
+    color: #2980b9;
+}
+
+.text p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Affichage du texte lorsque l'élément est sélectionné */
+.social-item input[type="radio"]:checked + label .text {
+    display: block;
+    opacity: 1;
+}
+
+/* Effet au survol de l'image : agrandissement sans cacher */
+.social-item:hover img {
+    transform: scale(1.1); /* Agrandissement au survol */
+}
+
+/* Effet au survol de l'élément complet */
+.social-item:hover {
+    transform: scale(1.05);
+}
+
+/* Style pour le texte au survol */
+.social-item:hover label {
+    color: #2980b9;
+}
+
+/* Texte au clic - avec l'utilisation de :checked */
+.toggle {
+    display: none;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 9, 109, 0.678);
+    color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.overlay-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.overlay-text p {
+    font-size: 1rem;
+}
+
+/* Affichage du texte lorsque l'input est checked */
+.toggle:checked + label + .overlay-text {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s;
+}
+
+/* Style du footer */
+footer {
+    background: rgba(1,0,5,255);
+    text-align: center;
+    padding: 30px 0;
+    color: #fff;
+    position:static;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Liste ordonnée */
+ol {
+    padding-left: 40px;
+}
+
+ol li {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+ol li strong {
+    font-size: 1.4rem;
+    color: #8400db;
+}
+/* Tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 2px solid #081171;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    font-weight: bold;
+    background-color:#ffe8c5;
+}
+
+
+tr:hover {
+    background-color: #fff6ea;
+}
+
+/* Style pour les icônes */
+ul li a i {
+    margin-right: 10px; /* Ajoute un espacement entre l'icône et le texte */
+    font-size: 24px; /* Taille de l'icône */
+    color: #5a0066; /* Couleur de l'icône */
+}
+
+/* Style pour la liste */
+ul {
+    list-style-type: none; /* Retire les puces */
+    padding-left: 10PX;
+}
+
+ul li {
+    margin-bottom: 20px; /* Espacement entre chaque élément */
+}
+
+/* Style pour les sous-listes */
+ul ul {
+    margin-top: 10px;
+    padding-left: 40px;
+}
+
+/* Style pour les liens */
+a {
+    text-decoration: none; /* Enlève le soulignement des liens */
+    color: #333; /* Couleur par défaut des liens */
+}
+
+a:hover {
+    color: #5a0066; /* Change la couleur lors du survol */
+}
+
+/* Div pour le texte */
+.service-text {
+    flex: 1; /* Prend toute la largeur disponible sauf celle de la vidéo */
+    max-width: 600px; /* Largeur maximale pour éviter une trop grande étendue */
+    text-align: left; /* Alignement à gauche */
+    margin: 0; /* Pas d'espace entre texte et vidéo */
+
+}
+
+
+/* Style pour les listes */
+ul {
+    list-style-type: none; /* Retirer les puces */
+    padding-left: 0;
+}
+
+/* Style pour les liens */
+a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+a:hover {
+    color: #5a0066;
+}
+
+/* Style pour les icônes */
+i {
+    margin-right: 10px;
+    margin-left: 20px;
+    font-size: 24px;
+    color: #5a0066;
+}
+
+/* Style de l'introduction */
+
+.intro h2 {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 24px;
+    color: #5a0066;
+    padding: 0 15px;
+}
+
+.intro p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333333;
+    margin: 20px auto;
+    padding: 0 15px;
+
+}
+.intro ul{
+    font-size: 18px;
+    text-align: left;
+    padding: 0 25px;
+}
+
+/* images dans pages accueil */
+.social-media-links {
+    display: flex;
+    justify-content: center; /* Centrer les images horizontalement */
+    align-items: center; /* Centrer les images verticalement si nécessaire */
+    gap: 20px; /* Espace entre les images, vous pouvez ajuster la valeur */
+}
+
+.social-image {
+    width: 200px; /* Taille augmentée des images */
+    height: 200px; /* Taille augmentée des images */
+    border-radius: 12px; /* Bords arrondis */
+    object-fit: cover; /* S'assurer que l'image s'adapte à la taille sans déformation */
+    cursor: pointer; /* Change le curseur pour indiquer que l'image est cliquable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition pour l'animation */
+}
+
+.social-image:hover {
+    transform: scale(1.1); /* Agrandir l'image légèrement */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre portée légère */
+}
+
+
+/* Centrage de l'image */
+.hist {
+    display: block; /* L'image est un élément en bloc */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    width: 270px; /* Ajustez la largeur selon votre préférence */
+    height: 240px;
+    max-width: 1000px; /* Limite la largeur maximale de l'image */
+    border-radius: 20px; /* Applique un rayon de bordure pour arrondir les coins */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre légère autour de l'image */
+    margin-bottom: 30px; /* Espacement en bas de l'image */
+}
+
